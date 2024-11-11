@@ -1,3 +1,5 @@
+package p1;
+
 import java.util.Scanner;
 
 //TIP 코드를 <b>실행</b>하려면 <shortcut actionId="Run"/>을(를) 누르거나
