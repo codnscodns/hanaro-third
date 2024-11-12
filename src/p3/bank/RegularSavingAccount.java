@@ -1,5 +1,6 @@
 package p3.bank;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,7 +29,7 @@ public class RegularSavingAccount extends Account{
                 rate = 3.4;
             }else if(month >= 9 && month <= 23){
                 rate = 3.35;
-            }else if(month >= 24){
+            }else if(month >= 24 && month <= 60){
                 rate = 2.9;
             }else{
                 return;
@@ -38,6 +39,7 @@ public class RegularSavingAccount extends Account{
 
             if(input.equalsIgnoreCase("Y")){
                 transferOnMaturity(rate, month, accountList);
+                accountList.remove(this);
                 System.out.println("정기예금 통장은 해지되었습니다. 감사합니다.");
             }else{
                 return;

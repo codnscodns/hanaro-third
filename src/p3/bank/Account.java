@@ -12,4 +12,8 @@ public abstract class Account implements Bank{
         this.ownerName = ownerName;
         this.balance = balance;
     }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
 }

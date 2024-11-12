@@ -26,11 +26,11 @@ public class FreeSavingAccount extends Account {
         int amount = scan.nextInt();
         scan.nextLine();
 
-        if(balance < amount){
+        if(balance < amount || balance <= 0){
             System.out.printf("잔액이 부족합니다! (잔액: %d원)\n", balance);
         }else{
             this.balance -= amount;
-            System.out.printf("%s에서 %d원이 출믁되었습니다.\n", accountName, amount);
+            System.out.printf("%s에서 %d원이 출금되었습니다.\n", accountName, amount);
         }
     }
 
