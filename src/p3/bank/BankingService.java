@@ -22,7 +22,7 @@ public class BankingService {
 
     public void menu(int accountNumber) {
         Account account = findAccountByNumber(accountNumber);
-        account.information(accountNumber);
+        account.information();
 
         while (true) {
             if (accountNumber == 2 && account.balance != 0) {
@@ -34,10 +34,10 @@ public class BankingService {
             String input = scan.nextLine();
 
             switch (input) {
-                case "+" -> account.deposit(accountNumber, accounts);
-                case "-" -> account.withdraw(accountNumber);
-                case "T" -> account.transfer(accountNumber, accounts);
-                case "I" -> account.information(accountNumber);
+                case "+" -> account.deposit(accounts);
+                case "-" -> account.withdraw();
+                case "T" -> account.transfer(accounts);
+                case "I" -> account.information();
                 case "0", "" -> {
                     return;
                 }
