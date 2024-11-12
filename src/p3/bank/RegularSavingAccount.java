@@ -39,7 +39,7 @@ public class RegularSavingAccount extends Account{
                 input = scan.nextLine();
 
                 if(input.equalsIgnoreCase("Y")){
-                    transferOnMaturity(rate, month, accountList);
+                    transferOnMaturity(rate, accountList);
                 }else{
                     return;
                 }
@@ -73,7 +73,7 @@ public class RegularSavingAccount extends Account{
         System.out.println("    48개월 이상    2.9%");
     }
 
-    public void transferOnMaturity(double rate, int month, List<Account> accountList){
+    public void transferOnMaturity(double rate, List<Account> accountList){
         System.out.print("어디로 보낼까요? (1: 자유입출금, 3: 마이너스) ");
         int transferTo = scan.nextInt();
         scan.nextLine();
