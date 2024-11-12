@@ -124,7 +124,7 @@ public class Cart {
 
     public void recipt(User user){
         if(cartItems.isEmpty()){
-            System.out.println("장바주니가 비어있습니다.");
+            System.out.println("장바구니가 비어있습니다.");
             return;
         }
 
@@ -145,6 +145,7 @@ public class Cart {
                 break;
             } else {
                 System.out.println("잘못된 입력입니다.");
+                return;
             }
         }
     }
