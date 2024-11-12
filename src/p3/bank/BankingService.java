@@ -20,6 +20,15 @@ public class BankingService {
         return this.accounts;
     }
 
+    public Account findAccountByNumber(int accountNumber) {
+        for (Account account : accounts) {
+            if (account.accountNumber == accountNumber) {
+                return account;
+            }
+        }
+        return null;
+    }
+
     public void menu(int accountNumber) {
         Account account = findAccountByNumber(accountNumber);
         account.information();
@@ -45,14 +54,5 @@ public class BankingService {
                 }
             }
         }
-    }
-
-    public Account findAccountByNumber(int accountNumber) {
-        for (Account account : accounts) {
-            if (account.accountNumber == accountNumber) {
-                return account;
-            }
-        }
-        return null;
     }
 }
