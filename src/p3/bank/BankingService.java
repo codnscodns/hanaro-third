@@ -17,13 +17,8 @@ public class BankingService {
     }
 
     public void menu(int accountNumber) {
-        Account temp = null;
-
-        for(Account account: accounts){
-            if(account.accountNumber == accountNumber){
-                temp = account;
-            }
-        }
+        Account account = findAccountByNumber(accountNumber);
+        account.information(accountNumber);
 
         while(true){
             System.out.print(">원하시는 업무는? (+:입금, -:출금, T:이체, I:정보) ");
@@ -31,16 +26,17 @@ public class BankingService {
 
             switch(input){
                 case "+": {
-                    temp.deposit(accountNumber);
+                    account.deposit(accountNumber);
                     break;
                 } case "-":{
-                    temp.withdraw(accountNumber);
+                    account.withdraw(accountNumber);
                     break;
                 } case "T":{
-                    temp.transfer(accountNumber);
+//                    account.transfer(accountNumber);
+                    transfer(accountNumber);
                     break;
                 } case "I":{
-                    temp.information(accountNumber);
+                    account.information(accountNumber);
                     break;
                 } case "0", "":{
                     return;
@@ -48,6 +44,40 @@ public class BankingService {
                     break;
                 }
             }
+        }
+    }
+
+    public Account findAccountByNumber(int accountNumber) {
+        for (Account account : accounts) {
+            if (account.accountNumber == accountNumber) {
+                return account;
+            }
+        }
+        return null;
+    }
+
+    public void transfer(int accountNumber){
+        System.out.print("어디로 보낼까요? (1: 자유입출금, 2: 정기예금, 3: 마이너스) ");
+        int transferTo = scan.nextInt();
+        scan.nextLine();
+
+        Account account = findAccountByNumber(accountNumber);
+        Account targetAccount = findAccountByNumber(transferTo);
+        if(targetAccount == null){
+            System.out.println("계좌를 찾을 수 없습니다.");
+            return;
+        }
+
+        System.out.printf("%s에 보낼 금액은? \n", targetAccount.accountName);
+        int amount = scan.nextInt();
+        scan.nextLine();
+
+        if(account.balance < amount){
+            System.out.printf("잔액이 부족합니다! (잔액: %d원)\n", account.balance);
+        }else{
+            targetAccount.balance += amount;
+            account.balance -= amount;
+            System.out.printf("%s 통장에 %d원이 입금되었습니다.\n", targetAccount.accountName, amount);
         }
     }
 }

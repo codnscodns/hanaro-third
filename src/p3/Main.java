@@ -21,8 +21,10 @@ public class Main {
                     banking.menu(1);
                     break;
                 } case "2":{
+                    banking.menu(2);
                     break;
                 } case "3":{
+                    banking.menu(3);
                     break;
                 } case "0", "":{
                     return;

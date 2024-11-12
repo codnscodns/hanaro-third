@@ -1,6 +1,5 @@
 package p3.bank;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 //자유입출금통장
@@ -37,8 +36,22 @@ public class FreeSavingAccount extends Account {
     @Override
     public void transfer(int accountNumber) {
         System.out.print("어디로 보낼까요? (2: 정기예금, 3: 마이너스) ");
-        int transferTo = scan.nextInt();
-        scan.nextLine();
+//        int transferTo = scan.nextInt();
+//        scan.nextLine();
+//
+////        BankingService bankingService = new BankingService();
+////        Account targetAccount = bankingService.findAccountByNumber(transferTo);
+//
+//        System.out.printf("%s에 보낼 금액은? ", targetAccount.accountName);
+//        int amount = scan.nextInt();
+//        scan.nextLine();
+//
+//        if(this.balance < amount){
+//            System.out.printf("잔액이 부족합니다! (잔액: %d원)\n", this.balance);
+//        }else{
+//            targetAccount.balance += amount;
+//            System.out.printf("%s에 %d원이 입금되었습니다.\n", targetAccount.accountName, amount);
+//        }
     }
 
     @Override

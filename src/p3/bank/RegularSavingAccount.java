@@ -13,16 +13,16 @@ public class RegularSavingAccount extends Account{
 
     @Override
     public void withdraw(int accountNumber) {
-        throw new UnsupportedOperationException("정기예금 계좌에서는 출금이 불가능합니다.");
+        throw new UnsupportedOperationException("출금할 수 없는 통장입니다.");
     }
 
     @Override
     public void transfer(int accountNumber) {
-        throw new UnsupportedOperationException("정기예금 계좌에서는 이체가 불가능합니다.");
+        throw new UnsupportedOperationException("이체할 수 없는 통장입니다.");
     }
 
     @Override
     public void information(int accountNumber) {
-
+        System.out.printf("%s 통장 (계좌번호: %d, 잔액: %d, 예금주: %s)\n", this.accountName, this.accountNumber, this.balance, this.ownerName);
     }
 }
